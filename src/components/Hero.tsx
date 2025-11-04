@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import heroImage from "@/assets/hero-couple.jpg";
-import productImage from "@/assets/product-image.png";
-import guaranteeImage from "@/assets/guarantee-image.png";
 
 interface HeroProps {
   onCtaClick: () => void;
@@ -65,23 +63,6 @@ const Hero = ({ onCtaClick }: HeroProps) => {
                 <span>2M+ Happy Women</span>
               </div>
               <div>⭐⭐⭐⭐⭐ 4.9/5.0 Rating</div>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            <div className="relative animate-fade-in">
-              <img 
-                src={productImage} 
-                alt="His Secret Obsession complete program - book and audio CD with 76% off discount"
-                className="w-full h-auto"
-              />
-            </div>
-            <div className="relative animate-fade-in">
-              <img 
-                src={guaranteeImage} 
-                alt="60-Day 100% No Questions Asked Money-Back Guarantee"
-                className="w-full h-auto"
-              />
             </div>
           </div>
         </div>

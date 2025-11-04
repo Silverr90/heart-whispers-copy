@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { toast } from "sonner";
 import { ArrowRight } from "lucide-react";
+import productImage from "@/assets/product-image.png";
 
 interface EmailFormProps {
   isOpen: boolean;
@@ -45,7 +46,7 @@ const EmailForm = ({ isOpen, onClose }: EmailFormProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold text-center">
             Get{" "}
@@ -54,7 +55,25 @@ const EmailForm = ({ isOpen, onClose }: EmailFormProps) => {
             </span>
           </DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4 mt-4">
+        
+        <div className="flex justify-center my-4">
+          <img 
+            src={productImage} 
+            alt="His Secret Obsession complete program - book and audio CD with 76% off discount" 
+            className="w-full max-w-sm h-auto"
+          />
+        </div>
+
+        <div className="text-center space-y-2 mb-4">
+          <p className="text-sm text-muted-foreground">Complete Program + All Bonuses</p>
+          <div className="flex items-center justify-center gap-3">
+            <span className="text-2xl text-muted-foreground line-through">$168</span>
+            <span className="text-4xl font-bold text-primary">$47</span>
+          </div>
+          <p className="text-xs text-muted-foreground">One-time payment. Instant digital access. 60-day money-back guarantee.</p>
+        </div>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="name">Your Name</Label>
             <Input
