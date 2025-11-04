@@ -20,16 +20,27 @@ const EmailForm = ({ isOpen, onClose }: EmailFormProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // Send welcome email via edge function
+      await fetch('/api/send-welcome-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
+      });
 
-    toast.success("Success! Check your email for instant access.");
-    
-    // Here you would typically redirect to your affiliate link or checkout page
-    // window.location.href = "YOUR_AFFILIATE_LINK_HERE";
-    
-    setIsSubmitting(false);
-    onClose();
+      toast.success("Success! Check your email and redirecting to checkout...");
+      
+      // Redirect to ClickBank payment page
+      setTimeout(() => {
+        window.location.href = "https://orders.clickbank.net/?cbfid=55390&cbitems=62&corid=53be8584-1ef1-4c5e-bcfe-d70dc034d8be&exitoffer=1105&oaref=01.89576444810781095BAEF7E8C8354654F3D360B7E6A16DCA63ADF5A233D2F859304822A0&template=17913&time=1762269420&vtid=lp0video1text&vvvv=hissecret&vvar=cbexit%3D1105%26cbfid%3D55390%26cbitems%3D62%26cbskin%3D17913%26vtid%3Dlp0video1text";
+      }, 1500);
+    } catch (error) {
+      console.error('Error:', error);
+      toast.error("Something went wrong. Please try again.");
+      setIsSubmitting(false);
+    }
   };
 
   return (
