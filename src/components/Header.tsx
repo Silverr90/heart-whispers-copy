@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Heart } from "lucide-react";
+import herruleLogo from "@/assets/herrule-logo.jpg";
 
 interface HeaderProps {
   onCtaClick: () => void;
@@ -24,8 +24,8 @@ const Header = ({ onCtaClick }: HeaderProps) => {
       }`}
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Heart className="h-6 w-6 text-primary fill-primary" />
+        <div className="flex items-center gap-3">
+          <img src={herruleLogo} alt="Herrule Logo" className="h-10 w-10 object-contain" />
           <span className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             His Secret Obsession
           </span>
