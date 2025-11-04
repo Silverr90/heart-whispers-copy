@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Shield, Clock, Heart } from "lucide-react";
+import { Shield, Clock } from "lucide-react";
+import happyWomenImage from "@/assets/happy-women.jpg";
 
 interface FinalCTAProps {
   onCtaClick: () => void;
@@ -39,8 +40,12 @@ const FinalCTA = ({ onCtaClick }: FinalCTAProps) => {
                 <p className="text-sm text-muted-foreground">Risk-free promise</p>
               </div>
               <div className="flex flex-col items-center gap-2">
-                <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-                  <Heart className="h-6 w-6 text-accent" />
+                <div className="w-20 h-20 rounded-full overflow-hidden border-2 border-accent/30">
+                  <img 
+                    src={happyWomenImage} 
+                    alt="Happy women celebrating successful relationships" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <p className="font-semibold">2M+ Happy Women</p>
                 <p className="text-sm text-muted-foreground">Proven results</p>
